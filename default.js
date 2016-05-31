@@ -12,3 +12,19 @@ var items = [
   {name: 'Star Wars: The Force Awakens', price: 13.99},
   {name: 'Ex Machina', price: 12.99},
 ]
+function match(input, list){
+  var theItems = [];
+  list.forEach(function(item){
+    if (item.name.toLowerCase().indexOf(input.toLowerCase()) !== -1) {
+      theItems.push(item);
+      console.log(theItems);
+    }
+  });
+  return theItems;
+}
+
+var searchButton = document.getElementById('search');
+searchButton.addEventListener('click', function(theEvent){
+  var input = document.getElementById('input');
+  console.log(match(input.value, items));
+});
