@@ -2,7 +2,7 @@
   position: relative;
   height: 200px;
   width: auto;
-  background-image: url('nile.jpg');
+  background-image: url('Pictures/nile.jpg');
   background-position: center right;
   background-repeat: no-repeat;
 }
@@ -27,3 +27,27 @@ h3{
   font-weight: bold;
   -webkit-box-reflect: below 5px -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(255, 255, 255, 0.8)));
 }
+.electronics, .books, .movies{
+  height: 150px;
+  padding: 10px;
+}
+#result{
+  width: 1240px;
+}
+button{
+  border-radius: 5px;
+}
+.panel-primary{
+  margin-top: 1%;
+}
+
+.input-group{
+  margin-top: 1.5%;
+}
+/*#firstPage{
+  z-index: 2;
+}
+#secondPage{
+  z-index: 1;
+}
+*/
