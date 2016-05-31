@@ -22,15 +22,61 @@ function match(input, list){
   return theItems;
 }
 
+function show(items){
+  var results = document.getElementById('results');
+  for (var i = 0; i < items.length; i++) {
+    var eachItem = document.createElement('p');
+    results.appendChild(item(items[i]));
+  }
+}
+
+function item(data){
+  var suggestions = document.createElement('h1');
+  suggestions.textContent = 'Suggestions for your search: ';
+  var container = document.createElement('div');
+  container.setAttribute('class', 'col-xs-3 panel panel-default');
+
+  var item = document.createElement('div');
+  item.setAttribute('class', 'panel-body');
+
+  var name = document.createElement('h4');
+  name.textContent = data.name;
+
+  container.appendChild(item);
+  item.appendChild(name);
+  return container;
+}
+
+function clear(element){
+  while(element.firstChild){
+    element.removeChild(element.firstChild)
+  }
+}
+
 var searchButton = document.getElementById('search');
 searchButton.addEventListener('click', function(theEvent){
+  var results = document.getElementById('results');
+  clear(results);
   var input = document.getElementById('input');
-  var results = match(input.value, items);
-  results.forEach(function(item){
-    var rating = item.rating;
-    var eachItem = document.createElement('p');
-    eachItem.textContent = item.name+" Price: $"+item.price + " Rating: "+ item.rating;
-    var resultDisplay = document.getElementById('results');
-    resultDisplay.appendChild(eachItem);
-  })
+  show(match(input.value, items));
 });
+
+var vizioButton = document.getElementById('vizio');
+vizioButton.addEventListener('click', function(theEvent){
+  var pageOne = document.getElementById('firstPage');
+  var pageTwo = document.getElementById('secondPage');
+  pageOne.style.zIndex = '0';
+  pageOne.style.opacity = '0';
+  pageTwo.style.zIndex = '1';
+  pageTwo.style.opacity = '1';
+});
+
+var returnHomeButton = document.getElementById('returnHome');
+returnHomeButton.addEventListener('click', function(theEvent){
+  var pageOne = document.getElementById('firstPage');
+  var pageTwo = document.getElementById('secondPage');
+  pageOne.style.zIndex = '1';
+  pageOne.style.opacity = '1';
+  pageTwo.style.zIndex = '0';
+  pageTwo.style.opacity = '0';
+})
