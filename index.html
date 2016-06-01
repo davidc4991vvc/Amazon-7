@@ -6,15 +6,19 @@
     <link href='https://fonts.googleapis.com/css?family=Cinzel' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="font-awesome-4.6.3/css/font-awesome.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="default.css" media="screen" title="no title" charset="utf-8">
     <title></title>
   </head>
   <body>
-    <div class="container-fluid">
+    <div id='firstPage' class="container-fluid" >
+      <!--Header-->
       <div class="row" id="header">
-        <h1>Welcome to Nile</h1>
+        <h1 id="welcome">Welcome to Nile</h1>
         <h3>Let's get shopping.</h3>
       </div>
+      <!--Navbar-->
       <div class="row" id="navbar">
         <nav class="navbar navbar-inverse">
           <div class="container-fluid">
@@ -24,22 +28,108 @@
                 <div class="input-group">
                   <div class="input-group-btn">
                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Departments <span class="caret"></span></button>
-                      <ul class="dropdown-menu">
-                        <li><a href="#">Electronics</a></li>
-                        <li><a href="#">Books</a></li>
-                        <li><a href="#">Movies</a></li>
-                      </ul>
-                    </div>
-                    <input type="text" class="form-control" aria-label="..." name="name" value="" placeholder='Search items here...'>
-                    <div class="input-group-btn">
-                      <button id="search" type="button" class="btn btn-attention" name="button"><i class="fa fa-search" aria-hidden="true"></i></button>
-                    </div>
+                    <ul class="dropdown-menu">
+                      <li><a href="#electronics">Electronics</a></li>
+                      <li><a href="#books">Books</a></li>
+                      <li><a href="#movies">Movies</a></li>
+                    </ul>
+                  </div>
+                  <input id="input" type="text" class="form-control" aria-label="..." name="name" value="" placeholder='Search items by name...'>
+                  <div class="input-group-btn">
+                    <button id="search" type="button" class="btn btn-attention" name="button"><i class="fa fa-search" aria-hidden="true"></i></button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </nav>
+        <!-- Electronics Section -->
+        <div class="container">
+          <div id="electronics" class="row">
+            <div class="panel panel-primary">
+              <div class="panel-heading">Electronics</div>
+                <div class="col-xs-3" align="center">
+                  <img class='image-responsive electronics' src="Pictures/vizio.jpeg" alt="" />
+                  <h4>Vizio Laptop</h4>
+                  <button id="vizio" type="button" name="button">View Item</button>
+                </div>
+                <div class="col-xs-3" align="center">
+                  <img class='image-responsive electronics' src="Pictures/macbook.jpeg" alt="" />
+                  <h4>Apple MacBook Pro</h4>
+                  <button type="button" name="button">View Item</button>
+                </div>
+                <div class="col-xs-3" align="center">
+                  <img class='image-responsive electronics' src="Pictures/samsung.jpg" alt="" />
+                  <h4>Samsung 36" Television</h4>
+                  <button type="button" name="button">View Item</button>
+                </div>
+                <div class="col-xs-3" align="center">
+                  <img class='image-responsive electronics' src="Pictures/iphones.jpeg" alt="" />
+                  <br>
+                  <h4>Apple iPhone 6s</h4>
+                  <button type="button" name="button">View Item</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        <!-- Books -->
+        <div class="container">
+          <div id="books" class="row">
+            <div class="panel panel-primary">
+              <div class="panel-heading">Books</div>
+                <div class="col-xs-3" align="center">
+                  <img class='image-responsive books' src="Pictures/harry.jpg" alt="" />
+                </div>
+                <div class="col-xs-3" align="center">
+                  <img class='image-responsive books' src="Pictures/winFriends.jpg" alt="" />
+                </div>
+                <div class="col-xs-3" align="center">
+                  <img class='image-responsive books' src="Pictures/universe.jpeg" alt="" />
+                </div>
+                <div class="col-xs-3" align="center">
+                  <img class='image-responsive books' src="Pictures/bigPicture.jpeg" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+        <!--Movies-->
+        <div class="container">
+          <div id="movies" class="row">
+            <div class="panel panel-primary">
+              <div class="panel-heading">Movies</div>
+                <div class="col-xs-3" align="center">
+                  <img class='image-responsive movies' src="Pictures/exMachina.jpg" alt="" />
+                </div>
+                <div class="col-xs-3" align="center">
+                  <img class='image-responsive movies' src="Pictures/starWars.jpg" alt="" />
+                </div>
+                <div class="col-xs-3" align="center">
+                  <img class='image-responsive movies' src="Pictures/deadpool.jpg" alt="" />
+                </div>
+                <div class="col-xs-3" align="center">
+                  <img class='image-responsive movies' src="Pictures/interstellar.jpeg" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Suggestion box -->
+        <div id='suggestionBox' class="row">
+          <div class = "panel panel-warning">
+            <div class="panel panel-heading">
+              <h1 id="suggestions" align="center">Suggestions based on your search:</h1>
+            </div>
+            <div id=results class="panel-body">
+            </div>
+          </div>
+        </div>
+      </div>
+    <!--End of the first page -->
+    <div id='secondPage' class="container-fluid">
+      <div id='newPage' class="">
+
+        Page 2
+        <button id='returnHome' type="button" name="button">Return Home</button>
       </div>
     </div>
     <script src="default.js" charset="utf-8"></script>
