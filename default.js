@@ -1,17 +1,18 @@
 var items = [
-  {name: 'Samsung Flatscreen Television', price: 499.99, brand: 'Samsung', rating: 4},
-  {name: 'Apple iPhone 6s', price: 399.99, brand: 'Apple', rating: 4.5},
-  {name: 'Vizio Laptop', price: 199.99, brand: 'Vizio', rating: 3},
-  {name: 'Apple MacBook Pro', price: 1299.99, brand: 'Apple', rating: 4.5},
-  {name: 'Harry Potter: Chamber of Secrets', price: 12.99, author: 'J.K. Rowling', rating: 5},
-  {name: 'How to Win Friends & Influence People', price: 8.99, author: 'Dale Carnegie', rating: 5},
-  {name: 'A Universe From Nothing', price: 11.99, author: 'Lawrence M Krauss', rating: 3.5},
-  {name: 'The Big Picture', price: 9.99, author: 'Sean Carroll', rating: 4},
-  {name: 'Interstellar', price: 12.99, rating: 2.5},
-  {name: 'Deadpool', price: 11.99, rating: 4},
-  {name: 'Star Wars: The Force Awakens', price: 13.99, rating: 5},
-  {name: 'Ex Machina', price: 12.99, rating: 3.5},
+  {id: 1, name: 'Samsung Television', price: 499.99, brand: 'Samsung', rating: 4},
+  {id: 2, name: 'Apple iPhone 6s', price: 399.99, brand: 'Apple', rating: 4.5},
+  {id: 3, name: 'Vizio Laptop', price: 199.99, brand: 'Vizio', rating: 3},
+  {id: 4, name: 'Apple MacBook Pro', price: 1299.99, brand: 'Apple', rating: 4.5},
+  {id: 5, name: 'Harry Potter: Chamber of Secrets', price: 12.99, author: 'J.K. Rowling', rating: 5},
+  {id: 6, name: 'How to Win Friends & Influence People', price: 8.99, author: 'Dale Carnegie', rating: 5},
+  {id: 7, name: 'A Universe From Nothing', price: 11.99, author: 'Lawrence M Krauss', rating: 3.5},
+  {id: 8, name: 'The Big Picture', price: 9.99, author: 'Sean Carroll', rating: 4},
+  {id: 9, name: 'Interstellar', price: 12.99, rating: 2.5},
+  {id: 10, name: 'Deadpool', price: 11.99, rating: 4},
+  {id: 11, name: 'Star Wars: The Force Awakens', price: 13.99, rating: 5},
+  {id: 12, name: 'Ex Machina', price: 12.99, rating: 3.5},
 ]
+
 function match(input, list){
   var theItems = [];
   list.forEach(function(item){
@@ -37,20 +38,29 @@ function item(data){
 
   var item = document.createElement('div');
   item.setAttribute('class', 'panel-body');
+  item.setAttribute('align', 'center');
 
   var name = document.createElement('h4');
+  name.setAttribute('name', data.name);
   name.textContent = data.name;
 
   var price = document.createElement('h4');
+  price.setAttribute('price', data.price);
   price.textContent = "$"+data.price;
 
   var rating = document.createElement('h4');
+  rating.setAttribute('rating', data.rating);
   rating.textContent = "Rating: "+data.rating;
+
+  var addToCart = document.createElement('button');
+  addToCart.setAttribute('id',data.id);
+  addToCart.textContent = "Add to Cart";
 
   container.appendChild(item);
   item.appendChild(name);
   item.appendChild(price);
   item.appendChild(rating);
+  item.appendChild(addToCart);
   return container;
 }
 
@@ -88,4 +98,27 @@ returnHomeButton.addEventListener('click', function(theEvent){
   pageOne.style.opacity = '1';
   pageTwo.style.zIndex = '0';
   pageTwo.style.opacity = '0';
-})
+});
+
+var cart = {
+  items: []
+}
+
+var results = document.getElementById('results');
+results.addEventListener('click', function(theEvent){
+  theId = theEvent.target.getAttribute('id');
+  console.log(theId);
+  var counter = document.getElementById('itemCounter');
+  var count = parseInt(counter.textContent);
+  if(theId !== null && theId !== 'results'){
+    count++;
+  }
+  counter.textContent = count;
+
+  items.forEach(function(item){
+    if (item.id == theId) {
+      cart.items.push(item);
+      console.log(cart);
+    }
+  })
+});
