@@ -1,3 +1,12 @@
+body{
+  position: relative;
+}
+#firstPage{
+  position: absolute;
+}
+#secondPage{
+  position: absolute;
+}
 #header{
   position: relative;
   height: 200px;
@@ -6,7 +15,7 @@
   background-position: center right;
   background-repeat: no-repeat;
 }
-h1{
+#welcome{
   position: absolute;
   left: 45%;
   right: 55%;
@@ -44,10 +53,16 @@ button{
 .input-group{
   margin-top: 1.5%;
 }
-/*#firstPage{
-  z-index: 2;
-}
-#secondPage{
+#firstPage{
   z-index: 1;
 }
-*/
+#secondPage{
+  z-index: 0;
+}
+#suggestions{
+  position: relative;
+  font-family: 'PT-serif', serif;
+}
+#suggestionBox{
+  opacity: 0;
+}
