@@ -94,10 +94,12 @@ var returnHomeButton = document.getElementById('returnHome');
 returnHomeButton.addEventListener('click', function(theEvent){
   var pageOne = document.getElementById('firstPage');
   var pageTwo = document.getElementById('secondPage');
+  var newPage = document.getElementById('newPage');
   pageOne.style.zIndex = '1';
   pageOne.style.opacity = '1';
   pageTwo.style.zIndex = '0';
   pageTwo.style.opacity = '0';
+  clear(newPage);
 });
 
 var cart = {
@@ -121,4 +123,23 @@ results.addEventListener('click', function(theEvent){
       console.log(cart);
     }
   })
+});
+
+var viewCart = document.getElementById('cartIcon');
+viewCart.addEventListener('click',function(theEvent){
+  for (var i = 0; i < cart.items.length; i++) {
+    console.log(cart);
+    var theItem = document.createElement('div');
+    theItem.className = "col-xs-3 col-offset-xs-1 text-center well";
+    theItem.textContent = cart.items[i].name + " Price: $" + cart.items[i].price + " Rating: " + cart.items[i].rating;
+    console.log(theItem);
+    var theSpace = document.getElementById('newPage');
+    theSpace.appendChild(theItem);
+    var pageOne = document.getElementById('firstPage');
+    var pageTwo = document.getElementById('secondPage');
+    pageOne.style.zIndex = '0';
+    pageOne.style.opacity = '0';
+    pageTwo.style.zIndex = '1';
+    pageTwo.style.opacity = '1';
+  }
 });
