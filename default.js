@@ -31,8 +31,7 @@ function show(items){
 }
 
 function item(data){
-  var suggestions = document.createElement('h1');
-  suggestions.textContent = 'Suggestions for your search: ';
+
   var container = document.createElement('div');
   container.setAttribute('class', 'col-xs-3 panel panel-default');
 
@@ -42,8 +41,16 @@ function item(data){
   var name = document.createElement('h4');
   name.textContent = data.name;
 
+  var price = document.createElement('h4');
+  price.textContent = "$"+data.price;
+
+  var rating = document.createElement('h4');
+  rating.textContent = "Rating: "+data.rating;
+
   container.appendChild(item);
   item.appendChild(name);
+  item.appendChild(price);
+  item.appendChild(rating);
   return container;
 }
 
@@ -58,6 +65,8 @@ searchButton.addEventListener('click', function(theEvent){
   var results = document.getElementById('results');
   clear(results);
   var input = document.getElementById('input');
+  var title = document.getElementById('suggestionBox');
+  title.style.opacity = 1;
   show(match(input.value, items));
 });
 
