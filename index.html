@@ -128,17 +128,28 @@
         </div>
       </div>
     <!--End of the first page -->
-    <div id='secondPage' class="container-fluid">
-      <div id='shoppingCartHeader' class="row">
+    <div id='secondPage' class="container-fluid shoppingCart">
+      <div id='shoppingCartHeader' class="row shoppingCart">
         <h1 align='center'>Shopping Cart</h1>
       </div>
-      <div id='newPage' class="row">
-          <div id="cartInfo" class="col-xs-3 col-offset-xs-9 panel panel-primary">
+      <div class="row">
+        <div id="cartInfo" class="col-xs-3 col-offset-xs-9 panel panel-success shoppingCart">
+          <div class="panel-heading">
+            Order Details:
+          </div>
+          <div class="panel-body">
             Subtotal:
           </div>
-
+        </div>
       </div>
-      <button id='returnHome' type="button" name="button">Return Home</button>
+      <div class="row shoppingCart">
+        <div class="panel panel-default">
+          <div class="panel-heading"><h2>Items in your cart:</h2></div>
+          <div class="panel-body" id="newPage">
+          </div>
+        </div>
+      </div>
+      <button class="shoppingCart" id='returnHome' type="button" name="button">Return Home</button>
     </div>
 
     <!--Beginning of item page.-->
