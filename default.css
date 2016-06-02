@@ -3,9 +3,12 @@ body{
 }
 #firstPage{
   position: absolute;
+  z-index: 1;
 }
 #secondPage{
   position: absolute;
+  z-index: 0;
+  width: 100%;
 }
 #header{
   position: relative;
@@ -53,12 +56,6 @@ button{
 .input-group{
   margin-top: 1.5%;
 }
-#firstPage{
-  z-index: 1;
-}
-#secondPage{
-  z-index: 0;
-}
 #suggestions{
   position: relative;
   font-family: 'PT-serif', serif;
@@ -87,4 +84,21 @@ button{
   z-index: 4;
   top: 20px;
   right: -135%;
+}
+#shoppingCartHeader{
+  height: 80px;
+  background-color: gold;
+  margin-bottom: 10%;
+}
+#returnHome{
+  position: absolute;
+  left: 50%;
+}
+#newPage{
+
+}
+#cartInfo{
+  position: fixed;
+  right: 5%;
+  opacity: 0;
 }
