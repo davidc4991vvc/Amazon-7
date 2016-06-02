@@ -95,7 +95,6 @@ returnHomeButton.addEventListener('click', function(theEvent){
   var pageOne = document.getElementById('firstPage');
   var pageTwo = document.getElementById('secondPage');
   var cartInfo = document.getElementById('cartInfo');
-  var newPage = document.getElementById('newPage');
   pageOne.style.zIndex = '1';
   pageOne.style.opacity = '1';
   pageTwo.style.zIndex = '0';
@@ -135,9 +134,10 @@ viewCart.addEventListener('click',function(theEvent){
     theRow.setAttribute('class', 'row');
 
     var theImage = document.createElement('div');
-    theImage.className = 'col-xs-3 col-offset-xs-1 image-responsive';
+    theImage.className = 'col-xs-6 col-offset-xs-1 itemRow';
     var image = document.createElement('img');
     image.src = cart.items[i].image;
+    image.setAttribute('class', 'cartItems')
     theImage.appendChild(image);
 
     var theItem = document.createElement('div');
