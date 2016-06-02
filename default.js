@@ -1,16 +1,16 @@
 var items = [
-  {id: 1, name: 'Samsung Television', price: 499.99, brand: 'Samsung', rating: 4},
-  {id: 2, name: 'Apple iPhone 6s', price: 399.99, brand: 'Apple', rating: 4.5},
-  {id: 3, name: 'Vizio Laptop', price: 199.99, brand: 'Vizio', rating: 3},
-  {id: 4, name: 'Apple MacBook Pro', price: 1299.99, brand: 'Apple', rating: 4.5},
-  {id: 5, name: 'Harry Potter: Chamber of Secrets', price: 12.99, author: 'J.K. Rowling', rating: 5},
-  {id: 6, name: 'How to Win Friends & Influence People', price: 8.99, author: 'Dale Carnegie', rating: 5},
-  {id: 7, name: 'A Universe From Nothing', price: 11.99, author: 'Lawrence M Krauss', rating: 3.5},
-  {id: 8, name: 'The Big Picture', price: 9.99, author: 'Sean Carroll', rating: 4},
-  {id: 9, name: 'Interstellar', price: 12.99, rating: 2.5},
-  {id: 10, name: 'Deadpool', price: 11.99, rating: 4},
-  {id: 11, name: 'Star Wars: The Force Awakens', price: 13.99, rating: 5},
-  {id: 12, name: 'Ex Machina', price: 12.99, rating: 3.5},
+  {id: 1, name: 'Samsung Television', price: 499.99, brand: 'Samsung', rating: 4, image: 'Pictures/samsung.jpg'},
+  {id: 2, name: 'Apple iPhone 6s', price: 399.99, brand: 'Apple', rating: 4.5, image: 'Pictures/iphones.jpeg'},
+  {id: 3, name: 'Vizio Laptop', price: 199.99, brand: 'Vizio', rating: 3, image: 'Pictures/vizio.jpeg'},
+  {id: 4, name: 'Apple MacBook Pro', price: 1299.99, brand: 'Apple', rating: 4.5, image: 'Pictures/macbook.jpeg'},
+  {id: 5, name: 'Harry Potter: Chamber of Secrets', price: 12.99, author: 'J.K. Rowling', rating: 5, image: 'Pictures/harry.jpg'},
+  {id: 6, name: 'How to Win Friends & Influence People', price: 8.99, author: 'Dale Carnegie', rating: 5, image: 'Pictures/winFriends.jpg'},
+  {id: 7, name: 'A Universe From Nothing', price: 11.99, author: 'Lawrence M Krauss', rating: 3.5, image: 'Pictures/universe.jpeg'},
+  {id: 8, name: 'The Big Picture', price: 9.99, author: 'Sean Carroll', rating: 4, image: 'Pictures/bigPicture.jpeg'},
+  {id: 9, name: 'Interstellar', price: 12.99, rating: 2.5, image: 'Pictures/interstellar.jpeg'},
+  {id: 10, name: 'Deadpool', price: 11.99, rating: 4, image: 'Pictures/deadpool.jpg'},
+  {id: 11, name: 'Star Wars: The Force Awakens', price: 13.99, rating: 5, image: 'Pictures/starWars.jpg'},
+  {id: 12, name: 'Ex Machina', price: 12.99, rating: 3.5, image: 'Pictures/exMachina.jpg'},
 ]
 
 function match(input, list){
@@ -94,11 +94,15 @@ var returnHomeButton = document.getElementById('returnHome');
 returnHomeButton.addEventListener('click', function(theEvent){
   var pageOne = document.getElementById('firstPage');
   var pageTwo = document.getElementById('secondPage');
+  var cartInfo = document.getElementById('cartInfo');
   var newPage = document.getElementById('newPage');
   pageOne.style.zIndex = '1';
   pageOne.style.opacity = '1';
   pageTwo.style.zIndex = '0';
   pageTwo.style.opacity = '0';
+  cartInfo.style.zIndex = '0';
+  cartInfo.style.opacity = '0';
+
   clear(newPage);
 });
 
@@ -120,7 +124,6 @@ results.addEventListener('click', function(theEvent){
   items.forEach(function(item){
     if (item.id == theId) {
       cart.items.push(item);
-      console.log(cart);
     }
   })
 });
@@ -128,18 +131,32 @@ results.addEventListener('click', function(theEvent){
 var viewCart = document.getElementById('cartIcon');
 viewCart.addEventListener('click',function(theEvent){
   for (var i = 0; i < cart.items.length; i++) {
-    console.log(cart);
+    var theRow = document.createElement('div');
+    theRow.setAttribute('class', 'row');
+
+    var theImage = document.createElement('div');
+    theImage.className = 'col-xs-3 col-offset-xs-1 image-responsive';
+    var image = document.createElement('img');
+    image.src = cart.items[i].image;
+    theImage.appendChild(image);
+
     var theItem = document.createElement('div');
-    theItem.className = "col-xs-3 col-offset-xs-1 text-center well";
+    theItem.className = "col-xs-3 text-center well";
     theItem.textContent = cart.items[i].name + " Price: $" + cart.items[i].price + " Rating: " + cart.items[i].rating;
-    console.log(theItem);
+
     var theSpace = document.getElementById('newPage');
-    theSpace.appendChild(theItem);
+    theRow.appendChild(theImage);
+    theRow.appendChild(theItem);
+    theSpace.appendChild(theRow);
+
     var pageOne = document.getElementById('firstPage');
     var pageTwo = document.getElementById('secondPage');
+    var cartInfo = document.getElementById('cartInfo');
     pageOne.style.zIndex = '0';
     pageOne.style.opacity = '0';
     pageTwo.style.zIndex = '1';
     pageTwo.style.opacity = '1';
+    cartInfo.style.zIndex = '1';
+    cartInfo.style.opacity = '1';
   }
 });
