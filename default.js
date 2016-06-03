@@ -13,8 +13,9 @@ var items = [
   {id: 12, name: 'Ex Machina', price: 12.99, rating: 3.5, image: 'Pictures/exMachina.jpg', description:'Caleb Smith (Domhnall Gleeson) a programmer at a huge Internet company, wins a contest that enables him to spend a week at the private estate of Nathan Bateman (Oscar Isaac), his firm\'s brilliant CEO. When he arrives, Caleb learns that he has been chosen to be the human component in a Turing test to determine the capabilities and consciousness of Ava (Alicia Vikander), a beautiful robot. However, it soon becomes evident that Ava is far more self-aware and deceptive than either man imagined.'},
 ]
 
-function toggle(shown, firstHidden, secondHidden){
-  
+function toggle(showPage, hidePage){
+  hidePage.className = hidePage.className + ' hidden';
+  showPage.className = showPage.className.replace(/hidden/g,' ');
 }
 
 function match(input, list){
@@ -88,10 +89,7 @@ var vizioButton = document.getElementById('vizio');
 vizioButton.addEventListener('click', function(theEvent){
   var pageOne = document.getElementById('firstPage');
   var pageTwo = document.getElementById('secondPage');
-  pageOne.style.zIndex = '0';
-  pageOne.style.opacity = '0';
-  pageTwo.style.zIndex = '1';
-  pageTwo.style.opacity = '1';
+  toggle(pageTwo, pageOne);
 });
 
 var returnHomeButton = document.getElementById('returnHome');
@@ -99,13 +97,7 @@ returnHomeButton.addEventListener('click', function(theEvent){
   var pageOne = document.getElementById('firstPage');
   var pageTwo = document.getElementById('secondPage');
   var cartInfo = document.getElementById('cartInfo');
-  pageOne.style.zIndex = '1';
-  pageOne.style.opacity = '1';
-  pageTwo.style.zIndex = '0';
-  pageTwo.style.opacity = '0';
-  cartInfo.style.zIndex = '0';
-  cartInfo.style.opacity = '0';
-
+  toggle(pageOne, pageTwo);
   clear(newPage);
 });
 
@@ -144,6 +136,10 @@ var sub = 0;
 var itemCount = 0;
 var viewCart = document.getElementById('cartIcon');
 viewCart.addEventListener('click',function(theEvent){
+  var pageOne = document.getElementById('firstPage');
+  var pageTwo = document.getElementById('secondPage');
+  var cartInfo = document.getElementById('cartInfo');
+
   for (var i = 0; i < cart.items.length; i++) {
     var theRow = document.createElement('div');
     theRow.setAttribute('class', 'row cartRow');
@@ -176,16 +172,6 @@ viewCart.addEventListener('click',function(theEvent){
     theRow.appendChild(thePrice);
     theSpace.appendChild(theRow);
 
-    var pageOne = document.getElementById('firstPage');
-    var pageTwo = document.getElementById('secondPage');
-    var cartInfo = document.getElementById('cartInfo');
-    pageOne.style.zIndex = '0';
-    pageOne.style.opacity = '0';
-    pageTwo.style.zIndex = '1';
-    pageTwo.style.opacity = '1';
-    cartInfo.style.zIndex = '1';
-    cartInfo.style.opacity = '1';
-
     itemCount++;
     function itemCountMessage(itemCount){
       var itemCountMessage;
@@ -199,12 +185,46 @@ viewCart.addEventListener('click',function(theEvent){
     }
 
     var subTotal = document.getElementById('subTotal');
+    var items = document.getElementById('items');
+    var shipping = document.getElementById('shipping');
+    var tax = document.getElementById('tax');
+    var total = document.getElementById('total');
     sub+=parseFloat(cart.items[i].price, 2);
-    subTotal.textContent = "Subtotal (" + itemCountMessage(itemCount) + "): $"+sub;
+    subTotal.textContent = "Subtotal (" + itemCountMessage(itemCount) + "): $"+parseFloat(sub,2);
+    items.textContent = "Items: $" +parseFloat(sub, 2);
+    shipping.textContent = "Shipping and handling: $" + parseFloat(itemCount*3.50,2);
+    var taxPrice = sub*.07;
+    tax.textContent = "Estimated tax: $" +parseFloat(taxPrice,2);
+    total.textContent = "Order total: $" +1;
+
   }
+  toggle(pageTwo, pageOne);
 });
 
 var checkoutButton = document.getElementById('checkoutButton');
 checkoutButton.addEventListener('click',function(theEvent){
-
+  var pageTwo = document.getElementById('secondPage');
+  var checkoutPage = document.getElementById('checkoutPage');
+  toggle(checkoutPage, pageTwo);
 });
+
+var returnToCartButton = document.getElementById('returnToCart');
+returnToCartButton.addEventListener('click', function(theEvent){
+  var pageTwo = document.getElementById('secondPage');
+  var checkoutPage = document.getElementById('checkoutPage');
+  toggle(pageTwo, checkoutPage);
+});
+
+var payNow = document.getElementById('payNow');
+payNow.addEventListener('click', function(theEvent){
+  var checkoutPage = document.getElementById('checkoutPage');
+  var purchaseSuccessful = document.getElementById('purchaseSuccessful');
+  toggle(purchaseSuccessful, checkoutPage);
+});
+
+var returnToHome = document.getElementById('returnToHome');
+returnToHome.addEventListener('click', function(theEvent){
+  var pageOne = document.getElementById('firstPage');
+  var purchaseSuccessful = document.getElementById('purchaseSuccessful');
+  toggle(pageOne, purchaseSuccessful);
+})
