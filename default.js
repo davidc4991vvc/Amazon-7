@@ -13,6 +13,10 @@ var items = [
   {id: 12, name: 'Ex Machina', price: 12.99, rating: 3.5, image: 'Pictures/exMachina.jpg', description:'Caleb Smith (Domhnall Gleeson) a programmer at a huge Internet company, wins a contest that enables him to spend a week at the private estate of Nathan Bateman (Oscar Isaac), his firm\'s brilliant CEO. When he arrives, Caleb learns that he has been chosen to be the human component in a Turing test to determine the capabilities and consciousness of Ava (Alicia Vikander), a beautiful robot. However, it soon becomes evident that Ava is far more self-aware and deceptive than either man imagined.'},
 ]
 
+function toggle(shown, firstHidden, secondHidden){
+  
+}
+
 function match(input, list){
   var theItems = [];
   list.forEach(function(item){
@@ -112,7 +116,6 @@ var cart = {
 var results = document.getElementById('results');
 results.addEventListener('click', function(theEvent){
   theId = theEvent.target.getAttribute('id');
-  console.log(theId);
   var counter = document.getElementById('itemCounter');
   var count = parseInt(counter.textContent);
   if(theId !== null && theId !== 'results'){
@@ -127,11 +130,23 @@ results.addEventListener('click', function(theEvent){
   })
 });
 
+function subTotal(cart){
+  var subTotal = document.getElementById('subtotal');
+  var sub = 0;
+  cart.forEach(function(item){
+    sub += cart.item.price;
+    console.log(sub);
+  })
+  subTotal.textContent = "Subtotal: $"+sub;
+};
+
+var sub = 0;
+var itemCount = 0;
 var viewCart = document.getElementById('cartIcon');
 viewCart.addEventListener('click',function(theEvent){
   for (var i = 0; i < cart.items.length; i++) {
     var theRow = document.createElement('div');
-    theRow.setAttribute('class', 'row');
+    theRow.setAttribute('class', 'row cartRow');
 
     var theImage = document.createElement('div');
     theImage.className = 'col-xs-6 col-offset-xs-1 itemImg';
@@ -170,5 +185,26 @@ viewCart.addEventListener('click',function(theEvent){
     pageTwo.style.opacity = '1';
     cartInfo.style.zIndex = '1';
     cartInfo.style.opacity = '1';
+
+    itemCount++;
+    function itemCountMessage(itemCount){
+      var itemCountMessage;
+      if (itemCount == 1){
+        itemCountMessage = "1 item";
+      }
+      else {
+        itemCountMessage = itemCount + " items";
+      }
+      return itemCountMessage;
+    }
+
+    var subTotal = document.getElementById('subTotal');
+    sub+=parseFloat(cart.items[i].price, 2);
+    subTotal.textContent = "Subtotal (" + itemCountMessage(itemCount) + "): $"+sub;
   }
+});
+
+var checkoutButton = document.getElementById('checkoutButton');
+checkoutButton.addEventListener('click',function(theEvent){
+
 });
