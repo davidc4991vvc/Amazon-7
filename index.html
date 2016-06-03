@@ -130,7 +130,7 @@
     <!--End of the first page -->
     <div id='secondPage' class="container-fluid shoppingCart">
       <div id='shoppingCartHeader' class="row shoppingCart">
-        <h1 align='center'>Shopping Cart</h1>
+        <h1 align='center'>Shopping Cart <i class="fa fa-shopping-cart" aria-hidden="true"></i></h1>
       </div>
       <div class="row">
         <div id="cartInfo" class="col-xs-3 col-offset-xs-9 panel panel-success shoppingCart">
@@ -138,13 +138,16 @@
             Order Details:
           </div>
           <div class="panel-body">
-            Subtotal:
+            <h4 id="subTotal"></h4>
+          </div>
+          <div class="" align = "center">
+            <button id="checkoutButton" type="button" class="btn btn-warning" name="button">Proceed to Checkout</button>
           </div>
         </div>
       </div>
       <div class="row shoppingCart">
         <div class="panel panel-default">
-          <div class="panel-heading"><h2>Items in your cart:</h2></div>
+          <div class="panel-heading text-center"><h2>Items in your cart:</h2></div>
           <div class="panel-body" id="newPage">
           </div>
         </div>
@@ -153,7 +156,7 @@
     </div>
 
     <!--Beginning of item page.-->
-    <div id='itemPage' class="container-fluid">
+    <div id='checkoutPage' class="container-fluid">
 
     </div>
     <script src="default.js" charset="utf-8"></script>
