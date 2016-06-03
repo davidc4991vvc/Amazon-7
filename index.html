@@ -128,9 +128,11 @@
         </div>
       </div>
     <!--End of the first page -->
-    <div id='secondPage' class="container-fluid shoppingCart">
-      <div id='shoppingCartHeader' class="row shoppingCart">
-        <h1 align='center'>Shopping Cart <i class="fa fa-shopping-cart" aria-hidden="true"></i></h1>
+    <div id='secondPage' class="container-fluid shoppingCart hidden">
+      <div class="row" id="header">
+        <h1 id="welcome"></h1>
+        <h3>Shopping Cart <i class="fa fa-shopping-cart" aria-hidden="true"></i></h3>
+        <div class="blackBar"><button class="shoppingCart" id='returnHome' type="button" name="button">Return Home</button></div>
       </div>
       <div class="row">
         <div id="cartInfo" class="col-xs-3 col-offset-xs-9 panel panel-success shoppingCart">
@@ -145,19 +147,131 @@
           </div>
         </div>
       </div>
-      <div class="row shoppingCart">
+      <div id="shoppingCartHead" class="row shoppingCart">
         <div class="panel panel-default">
           <div class="panel-heading text-center"><h2>Items in your cart:</h2></div>
           <div class="panel-body" id="newPage">
           </div>
         </div>
       </div>
-      <button class="shoppingCart" id='returnHome' type="button" name="button">Return Home</button>
     </div>
 
-    <!--Beginning of item page.-->
-    <div id='checkoutPage' class="container-fluid">
-
+    <!--Beginning of checkout page.-->
+    <div id='checkoutPage' class="container-fluid hidden">
+      <div class="row" id="header">
+        <h1 id="welcome"></h1>
+        <h3>Checkout</h3>
+        <div class="blackBar"><button id="returnToCart" type="button" name="button">Return to Cart</button></div>
+      </div>
+      <div class="row" id="forms">
+        <div class="col-xs-4 col-xs-offset-1">
+          <h4>Add personal information</h4>
+          <form role='form'>
+            <div class="form-group">
+              <label for="name">Enter full name:</label>
+              <input type="name" id="name" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="name">Address line 1:</label>
+              <input type="name" id="name" class="form-control" placeholder="Street address, P.O. box, company name, c/o">
+            </div>
+            <div class="form-group">
+              <label for="name">Address line 2:</label>
+              <input type="name" id="name" class="form-control" placeholder="Apartment, suite, unit, building, floor, etc.">
+            </div>
+            <div class="form-group">
+              <label for="name">City:</label>
+              <input type="name" id="name" class="form-control" placeholder="">
+            </div>
+            <div class="form-group">
+              <label for="name">State/Province/Region:</label>
+              <input type="name" id="name" class="form-control" placeholder="">
+            </div>
+            <div class="form-group">
+              <label for="name">ZIP:</label>
+              <input type="name" id="name" class="form-control" placeholder="">
+            </div>
+            <div class="col-xs-10">
+              <button type="submit" class="btn btn-warning">Remember me</button>
+            </div>
+          </form>
+        </div>
+        <div class="col-xs-4 col-xs-offset-1">
+          <h4>Enter payment information</h4>
+          <form role='form'>
+            <div class="form-group">
+              <label for="name">Name on card</label>
+              <input type="name" id="cardName" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="name">Card number</label>
+              <input type="name" id="cardNum" class="form-control" placeholder="XXXX-XXXX-XXXX-XXXX">
+            </div>
+            <div class="form-group row">
+              <div class="col-xs-4">
+                <label for="sel1 sel2">Expiration date</label>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-xs-2">
+                <select class="form-control" id="sel1">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                  <option>7</option>
+                  <option>8</option>
+                  <option>9</option>
+                  <option>10</option>
+                  <option>11</option>
+                  <option>12</option>
+                </select>
+              </div>
+              <div class="col-xs-3">
+                <select class="form-control" id="sel2">
+                  <option>2016</option>
+                  <option>2017</option>
+                  <option>2018</option>
+                  <option>2019</option>
+                  <option>2020</option>
+                  <option>2021</option>
+                  <option>2022</option>
+                  <option>2023</option>
+                  <option>2024</option>
+                  <option>2025</option>
+                  <option>2026</option>
+                  <option>2027</option>
+                </select>
+              </div>
+              <div class="col-xs-3">
+                <button type="submit" class="btn btn-warning">Add my card</button>
+              </div>
+            </div>
+            <div id="finalDetails" class="row">
+              <div class="panel panel-default" align='right'>
+                <div class="panel-heading" align='center'>Order Summary</div>
+                <div class="panel-body">
+                  <p id="items"></p>
+                  <p id="shipping"></p>
+                  <p id='tax'></p>
+                  <h4 id='total'></h4>
+                </div>
+              </div>
+              <div>
+                <button id="payNow" type="submit" class='btn btn-primary btn-block' name="button">Pay Now</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div id="purchaseSuccessful" align='center' class="hidden">
+      <div class="jumbotron">
+        <h1>Purchase Successful!</h1>
+      </div>
+      <button align='center' id='returnToHome' type="button" name="button">Return Home</button>
     </div>
     <script src="default.js" charset="utf-8"></script>
   </body>
