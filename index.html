@@ -169,27 +169,27 @@
           <form role='form'>
             <div class="form-group">
               <label for="name">Enter full name:</label>
-              <input type="name" id="name" class="form-control">
+              <input type="name" id="buyerName" class="form-control">
             </div>
             <div class="form-group">
               <label for="name">Address line 1:</label>
-              <input type="name" id="name" class="form-control" placeholder="Street address, P.O. box, company name, c/o">
+              <input type="name" id="buyerAddress" class="form-control" placeholder="Street address, P.O. box, company name, c/o">
             </div>
             <div class="form-group">
               <label for="name">Address line 2:</label>
-              <input type="name" id="name" class="form-control" placeholder="Apartment, suite, unit, building, floor, etc.">
+              <input type="name" id="buyerAddressTwo" class="form-control" placeholder="Apartment, suite, unit, building, floor, etc.">
             </div>
             <div class="form-group">
               <label for="name">City:</label>
-              <input type="name" id="name" class="form-control" placeholder="">
+              <input type="name" id="buyerCity" class="form-control" placeholder="">
             </div>
             <div class="form-group">
               <label for="name">State/Province/Region:</label>
-              <input type="name" id="name" class="form-control" placeholder="">
+              <input type="name" id="buyerState" class="form-control" placeholder="">
             </div>
             <div class="form-group">
               <label for="name">ZIP:</label>
-              <input type="name" id="name" class="form-control" placeholder="">
+              <input type="name" id="buyerZip" class="form-control" placeholder="">
             </div>
             <div class="col-xs-10">
               <button type="submit" class="btn btn-warning">Remember me</button>
@@ -252,8 +252,8 @@
             <div id="finalDetails" class="row">
               <div class="panel panel-default" align='right'>
                 <div class="panel-heading" align='center'>Order Summary</div>
-                <div class="panel-body">
-                  <p id="items"></p>
+                <div class="panel-body" id="finalDetailInfo">
+                  <p id="itemsSum"></p>
                   <p id="shipping"></p>
                   <p id='tax'></p>
                   <h4 id='total'></h4>
@@ -267,11 +267,13 @@
         </form>
       </div>
     </div>
-    <div id="purchaseSuccessful" align='center' class="hidden">
-      <div class="jumbotron">
-        <h1>Purchase Successful!</h1>
+    <div class="container-fluid hidden" id="purchaseSuccessful">
+      <div class="row" id="header">
+        <h1 id="welcome"></h1>
+        <h3></h3>
+        <div class="blackBar"><button id="returnToHome" type="button" name="button">Return Home</button></div>
       </div>
-      <button align='center' id='returnToHome' type="button" name="button">Return Home</button>
+      <h1 class="text-center" id='purchaseThanks'>Thank you for your purchase!</h1>
     </div>
     <script src="default.js" charset="utf-8"></script>
   </body>

@@ -106,7 +106,7 @@ button{
 #cartInfo{
   position: fixed;
   right: 5%;
-  top: 30%;
+  top: 40%;
 }
 .cartItems{
   top: 10px;
@@ -131,4 +131,11 @@ button{
 }
 #shoppingCartHead{
   margin-top: 2%;
+}
+#total{
+  color: red;
+}
+#purchaseThanks{
+  margin-top: 5%;
+  left: 50%;
 }
