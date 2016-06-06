@@ -104,6 +104,9 @@ returnHomeButton.addEventListener('click', function(theEvent){
 var cart = {
   items: []
 }
+var orderHistory = {
+  purchasedItems: []
+}
 
 var results = document.getElementById('results');
 results.addEventListener('click', function(theEvent){
@@ -122,12 +125,13 @@ results.addEventListener('click', function(theEvent){
   })
 });
 
+var subTotal = document.getElementById('subTotal');
+subTotal.textContent = "Your cart is empty.";
+var sub = 0;
 function subTotal(cart){
-  var subTotal = document.getElementById('subtotal');
-  var sub = 0;
+  var subTotal = document.getElementById('subTotal');
   cart.forEach(function(item){
     sub += cart.item.price;
-    console.log(sub);
   })
   subTotal.textContent = "Subtotal: $"+sub;
 };
@@ -185,17 +189,18 @@ viewCart.addEventListener('click',function(theEvent){
     }
 
     var subTotal = document.getElementById('subTotal');
-    var items = document.getElementById('items');
+    var items = document.getElementById('itemsSum');
     var shipping = document.getElementById('shipping');
     var tax = document.getElementById('tax');
     var total = document.getElementById('total');
     sub+=parseFloat(cart.items[i].price, 2);
-    subTotal.textContent = "Subtotal (" + itemCountMessage(itemCount) + "): $"+parseFloat(sub,2);
-    items.textContent = "Items: $" +parseFloat(sub, 2);
-    shipping.textContent = "Shipping and handling: $" + parseFloat(itemCount*3.50,2);
-    var taxPrice = sub*.07;
-    tax.textContent = "Estimated tax: $" +parseFloat(taxPrice,2);
-    total.textContent = "Order total: $" +1;
+    subTotal.textContent = "Subtotal (" + itemCountMessage(itemCount) + "): $"+sub.toFixed(2);
+    itemsSum.textContent = "Items: $" + sub.toFixed(2);
+    var shippingAmt = itemCount*3.50;
+    shipping.textContent = "Shipping and handling: $" + shippingAmt.toFixed(2);
+    var taxAmt = (sub*.07);
+    tax.textContent = "Estimated tax: $" + taxAmt.toFixed(2);
+    total.textContent = "Order total: $" + (sub+taxAmt+shippingAmt).toFixed(2);
 
   }
   toggle(pageTwo, pageOne);
@@ -203,9 +208,14 @@ viewCart.addEventListener('click',function(theEvent){
 
 var checkoutButton = document.getElementById('checkoutButton');
 checkoutButton.addEventListener('click',function(theEvent){
+  var pageOne = document.getElementById('firstPage');
   var pageTwo = document.getElementById('secondPage');
   var checkoutPage = document.getElementById('checkoutPage');
-  toggle(checkoutPage, pageTwo);
+  if(itemCount == 0){
+    toggle(pageOne, pageTwo);
+    window.alert("Please add items to your shopping cart.")
+  }
+  else{toggle(checkoutPage, pageTwo)};
 });
 
 var returnToCartButton = document.getElementById('returnToCart');
@@ -219,12 +229,63 @@ var payNow = document.getElementById('payNow');
 payNow.addEventListener('click', function(theEvent){
   var checkoutPage = document.getElementById('checkoutPage');
   var purchaseSuccessful = document.getElementById('purchaseSuccessful');
-  toggle(purchaseSuccessful, checkoutPage);
+  var valid = true;
+
+  if (buyerName.value.indexOf(' ') == -1) {
+    window.confirm("Please enter your first and last name.");
+    valid = false;
+  }
+
+  if (buyerAddress.value.indexOf(' ') == -1) {
+    window.confirm("Please enter your street address.");
+    valid = false;
+  }
+
+  if (buyerCity.value.length == 0) {
+    window.confirm("Please enter the name of your city.");
+    valid = false;
+  }
+
+  if (buyerZip.value.length == 0) {
+    window.confirm("Please enter your ZIP code.");
+    valid = false;
+  }
+
+  if (cardName.value.indexOf(' ') == -1) {
+    window.confirm("Please enter your name exactly as it appears on your card.");
+    valid = false;
+  }
+
+  if (cardNum.value.length != 12) {
+    window.confirm("Please enter all twelve digits of the numbers on your card.");
+    valid = false;
+  }
+  if (valid) {
+    cart.items.forEach(function(item){
+      orderHistory.purchasedItems.push(item.name);
+    })
+    cart = {
+      items: []
+    }
+    clear(newPage);
+    itemCounter.textContent = '0';
+    sub = 0;
+    itemCount = 0;
+    subTotal.textContent = "Your cart is empty.";
+    itemsSum.textContent = "Items: $0";
+    shipping.textContent = "Shipping and handling: $0";
+    tax.textContent = "Estimated tax: $0";
+    total.textContent = "Order total: $0";
+
+    toggle(purchaseSuccessful, checkoutPage);
+  }
 });
 
 var returnToHome = document.getElementById('returnToHome');
 returnToHome.addEventListener('click', function(theEvent){
+  document.getElementById('results');
   var pageOne = document.getElementById('firstPage');
   var purchaseSuccessful = document.getElementById('purchaseSuccessful');
   toggle(pageOne, purchaseSuccessful);
-})
+  clear(results);
+});
