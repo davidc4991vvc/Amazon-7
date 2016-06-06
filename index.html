@@ -54,23 +54,23 @@
                 <div class="col-xs-3" align="center">
                   <img class='image-responsive electronics' src="Pictures/vizio.jpeg" alt="" />
                   <h4>Vizio Laptop</h4>
-                  <button id="vizio" type="button" name="button">View Item</button>
+                  <button id="2" type="button" name="button">View Item</button>
                 </div>
                 <div class="col-xs-3" align="center">
                   <img class='image-responsive electronics' src="Pictures/macbook.jpeg" alt="" />
                   <h4>Apple MacBook Pro</h4>
-                  <button type="button" name="button">View Item</button>
+                  <button id="3" type="button" name="button">View Item</button>
                 </div>
                 <div class="col-xs-3" align="center">
                   <img class='image-responsive electronics' src="Pictures/samsung.jpg" alt="" />
                   <h4>Samsung 36" Television</h4>
-                  <button type="button" name="button">View Item</button>
+                  <button id="0" type="button" name="button">View Item</button>
                 </div>
                 <div class="col-xs-3" align="center">
                   <img class='image-responsive electronics' src="Pictures/iphones.jpeg" alt="" />
                   <br>
                   <h4>Apple iPhone 6s</h4>
-                  <button type="button" name="button">View Item</button>
+                  <button id="1" type="button" name="button">View Item</button>
                 </div>
               </div>
             </div>
@@ -82,15 +82,27 @@
               <div class="panel-heading">Books</div>
                 <div class="col-xs-3" align="center">
                   <img class='image-responsive books' src="Pictures/harry.jpg" alt="" />
+                  <br>
+                  <h4>Harry Potter and the Chamber of Secrets</h4>
+                  <button id="4" type="button" name="button">View Item</button>
                 </div>
                 <div class="col-xs-3" align="center">
                   <img class='image-responsive books' src="Pictures/winFriends.jpg" alt="" />
+                  <br>
+                  <h4>How to Win Friends and Influence People</h4>
+                  <button id="5" type="button" name="button">View Item</button>
                 </div>
                 <div class="col-xs-3" align="center">
                   <img class='image-responsive books' src="Pictures/universe.jpeg" alt="" />
+                  <br>
+                  <h4>A Universe From Nothing</h4>
+                  <button id="6" type="button" name="button">View Item</button>
                 </div>
                 <div class="col-xs-3" align="center">
                   <img class='image-responsive books' src="Pictures/bigPicture.jpeg" alt="" />
+                  <br>
+                  <h4>The Big Picture</h4>
+                  <button id="7" type="button" name="button">View Item</button>
                 </div>
               </div>
             </div>
@@ -102,15 +114,27 @@
               <div class="panel-heading">Movies</div>
                 <div class="col-xs-3" align="center">
                   <img class='image-responsive movies' src="Pictures/exMachina.jpg" alt="" />
+                  <br>
+                  <h4>Ex Machina</h4>
+                  <button id="11" type="button" name="button">View Item</button>
                 </div>
                 <div class="col-xs-3" align="center">
                   <img class='image-responsive movies' src="Pictures/starWars.jpg" alt="" />
+                  <br>
+                  <h4>Star Wars: The Force Awakens</h4>
+                  <button id="10" type="button" name="button">View Item</button>
                 </div>
                 <div class="col-xs-3" align="center">
                   <img class='image-responsive movies' src="Pictures/deadpool.jpg" alt="" />
+                  <br>
+                  <h4>Deadpool</h4>
+                  <button id="9" type="button" name="button">View Item</button>
                 </div>
                 <div class="col-xs-3" align="center">
                   <img class='image-responsive movies' src="Pictures/interstellar.jpeg" alt="" />
+                  <br>
+                  <h4>Interstellar</h4>
+                  <button id="8" type="button" name="button">View Item</button>
                 </div>
               </div>
             </div>
@@ -267,6 +291,7 @@
         </form>
       </div>
     </div>
+    <!--Successful purchase screen-->
     <div class="container-fluid hidden" id="purchaseSuccessful">
       <div class="row" id="header">
         <h1 id="welcome"></h1>
@@ -274,6 +299,28 @@
         <div class="blackBar"><button id="returnToHome" type="button" name="button">Return Home</button></div>
       </div>
       <h1 class="text-center" id='purchaseThanks'>Thank you for your purchase!</h1>
+    </div>
+    <!--Item Page-->
+    <div class="container-fluid hidden" id='itemPage'>
+      <div class="row" id="header">
+        <h1 id="welcome"></h1>
+        <h3></h3>
+        <div class="blackBar"><button id="returnToHomeButton" type="button" name="button">Return Home</button></div>
+      </div>
+      <div class="row" id='itemDetails'>
+      </div>
+      <div class="row">
+        <div class="col-xs-6 col-xs-offset-5">
+          <div class="panel panel-info">
+            <div class="panel panel-heading">
+              <h4 align='center'>See what other customers had to say</h4>
+            </div>
+            <div class="panel panel-body">
+
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <script src="default.js" charset="utf-8"></script>
   </body>

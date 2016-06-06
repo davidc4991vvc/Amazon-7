@@ -90,7 +90,7 @@ button{
   height: 80px;
   background-color: gold;
 }
-#returnHome, #returnToCart, #returnToHome{
+#returnHome, #returnToCart, #returnToHome, #returnToHomeButton{
   position: absolute;
   left: 90%;
   top: 2px;
@@ -138,4 +138,16 @@ button{
 #purchaseThanks{
   margin-top: 5%;
   left: 50%;
+}
+#itemDetails{
+  margin-top: 5%;
+}
+.indItems{
+  top: 30%;
+  position: fixed;
+  max-height: 800px;
+  max-width: 400px;
+}
+.indItemDetails{
+  margin-left: 5%;
 }
