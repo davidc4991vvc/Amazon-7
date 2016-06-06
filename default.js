@@ -85,13 +85,6 @@ searchButton.addEventListener('click', function(theEvent){
   show(match(input.value, items));
 });
 
-var vizioButton = document.getElementById('vizio');
-vizioButton.addEventListener('click', function(theEvent){
-  var pageOne = document.getElementById('firstPage');
-  var pageTwo = document.getElementById('secondPage');
-  toggle(pageTwo, pageOne);
-});
-
 var returnHomeButton = document.getElementById('returnHome');
 returnHomeButton.addEventListener('click', function(theEvent){
   var pageOne = document.getElementById('firstPage');
@@ -276,7 +269,14 @@ payNow.addEventListener('click', function(theEvent){
     shipping.textContent = "Shipping and handling: $0";
     tax.textContent = "Estimated tax: $0";
     total.textContent = "Order total: $0";
-
+    buyerName.value = '';
+    buyerAddress.value = '';
+    buyerAddressTwo.value = '';
+    buyerCity.value = '';
+    buyerState.value = '';
+    buyerZip.value = '';
+    cardName.value = '';
+    cardNum.value = '';
     toggle(purchaseSuccessful, checkoutPage);
   }
 });
@@ -288,4 +288,77 @@ returnToHome.addEventListener('click', function(theEvent){
   var purchaseSuccessful = document.getElementById('purchaseSuccessful');
   toggle(pageOne, purchaseSuccessful);
   clear(results);
+});
+
+var returnToHomeButton = document.getElementById('returnToHomeButton');
+returnToHomeButton.addEventListener('click', function(theEvent){
+  toggle(pageOne, itemPage);
+  clear(itemDetails);
+});
+
+
+var allItems = document.getElementById('navbar');
+var itemPage = document.getElementById('itemPage');
+var pageOne = document.getElementById('firstPage');
+allItems.addEventListener('click', function(theEvent){
+  theId = theEvent.target.getAttribute('id');
+  items.forEach(function(item){
+    if(item.id-1 == theId){
+      var theRow = document.createElement('div');
+      theRow.setAttribute('class', 'row itemRow');
+
+      var theImage = document.createElement('div');
+      theImage.className = 'col-xs-4 col-offset-xs-1 indItemPic';
+      var image = document.createElement('img');
+      image.src = items[theId].image;
+      image.setAttribute('class', 'indItems col-xs-offset-1 ')
+      theImage.appendChild(image);
+
+      var theItem = document.createElement('div');
+      theItem.className = "col-xs-6 text-center indItemDetails";
+      var itemName = document.createElement('h4');
+      itemName.textContent = items[theId].name;
+      theItem.appendChild(itemName);
+
+      var theDescription = document.createElement('p');
+      theDescription.textContent = items[theId].description;
+      theDescription.setAttribute('class', 'itemDescription');
+      theItem.appendChild(theDescription);
+
+      var theRating = document.createElement('h4');
+      theRating.textContent = "Rating: "+items[theId].rating +"/5";
+      theItem.appendChild(theRating);
+
+      var thePrice = document.createElement('h4');
+      thePrice.textContent = "$" + items[theId].price;
+      thePrice.setAttribute('class','itemPrice text-center');
+      theItem.appendChild(thePrice);
+
+      var reviewBox = document.createElement('div');
+      reviewBox.className = 'col-xs-6 col-xs-offset-3 panel panel-default';
+      theItem.appendChild(reviewBox);
+
+      var reviewBoxTitle = document.createElement('h4');
+      reviewBoxTitle.className = 'panel panel-heading';
+      reviewBox.appendChild(reviewBoxTitle);
+      reviewBoxTitle.textContent = 'Leave a review for '+items[theId].name;
+
+      var reviewBoxContent = document.createElement('input');
+      reviewBoxContent.className = 'col-xs-10 col-xs-offset-1';
+      reviewBoxContent.setAttribute('type','text');
+      reviewBoxContent.setAttribute('style', 'height:80px')
+      reviewBox.appendChild(reviewBoxContent);
+
+      var submitReview = document.createElement('button');
+      submitReview.textContent = 'Submit';
+      submitReview.id = 'submitReview';
+      reviewBox.appendChild(submitReview);
+
+      theRow.appendChild(theImage);
+      theRow.appendChild(theItem);
+      itemDetails.appendChild(theRow);
+
+      toggle(itemPage, pageOne);
+    }
+  })
 });
