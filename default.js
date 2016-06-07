@@ -13,6 +13,10 @@ var items = [
   {id: 12, name: 'Ex Machina', price: 12.99, rating: 3.5, image: 'Pictures/exMachina.jpg', description:'Caleb Smith (Domhnall Gleeson) a programmer at a huge Internet company, wins a contest that enables him to spend a week at the private estate of Nathan Bateman (Oscar Isaac), his firm\'s brilliant CEO. When he arrives, Caleb learns that he has been chosen to be the human component in a Turing test to determine the capabilities and consciousness of Ava (Alicia Vikander), a beautiful robot.', reviews:['This product is great!', "Best ever!"]},
 ]
 
+var users = [
+  {name: '', addressOne: '', addressTwo: '', city: '', state: '', zip: '', cardName:'',cardNum:''}
+]
+
 function toggle(showPage, hidePage){
   hidePage.className = hidePage.className + ' hidden';
   showPage.className = showPage.className.replace(/hidden/g,' ');
@@ -347,7 +351,7 @@ allItems.addEventListener('click', function(theEvent){
       var reviewBoxContent = document.createElement('input');
       reviewBoxContent.className = 'col-xs-10 col-xs-offset-1';
       reviewBoxContent.setAttribute('type','text');
-      reviewBoxContent.setAttribute('style', 'height:60px')
+      reviewBoxContent.setAttribute('style', 'height:30px')
       reviewBox.appendChild(reviewBoxContent);
 
       var submitReview = document.createElement('button');
@@ -358,8 +362,6 @@ allItems.addEventListener('click', function(theEvent){
       submitReview.addEventListener('click', function(theEvent){
         var individualReview = reviewBoxContent.value;
         items[theId].reviews.push(individualReview);
-        toggle(firstPage,itemPage);
-        toggle(itemPage,firstPage);
       })
 
 
