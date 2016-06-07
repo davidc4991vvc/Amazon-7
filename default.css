@@ -151,3 +151,7 @@ button{
 .indItemDetails{
   margin-left: 5%;
 }
+#reviewContainer{
+  color: blue;
+  font-size: 30px;
+}
