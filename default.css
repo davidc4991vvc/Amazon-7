@@ -74,6 +74,14 @@ button{
   color: gold;
   z-index: 3;
 }
+#historyIcon{
+  background-color: transparent;
+  border-color: transparent;
+  color: gold;
+  position: absolute;
+  left: -200%;
+  top: 4%;
+}
 #itemCounter{
   position: absolute;
   background-color: gray;
@@ -88,7 +96,7 @@ button{
   height: 80px;
   background-color: gold;
 }
-#returnHome, #returnToCart, #returnToHome, #returnToHomeButton{
+#returnHome, #returnBackToHome, #returnToCart, #returnToHome, #returnToHomeButton{
   position: absolute;
   left: 90%;
   top: 2px;
@@ -160,6 +168,15 @@ button{
   background-color: gold;
   right: 12%;
   top: 55%;
-  border-radius: 0px;
+  border-radius: 90px;
   z-index: 1;
+}
+#historyHeader{
+  transform: translateY(20px);
+}
+.historyRow{
+  position: absolute;
+}
+#purchasedItemsList{
+  font-size: 30px;
 }

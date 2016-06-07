@@ -39,6 +39,7 @@
                     <a href="#suggestions"><button id="search" type="button" class="btn btn-warning" name="button"><i class="fa fa-search" aria-hidden="true"></i></button></a>
                   </div>
                   <div id='cart' class="col-xs-1 pull-right">
+                    <button id='historyIcon' type="button" name="button"><i class="fa fa-history fa-4x" aria-hidden="true"></i></button>
                     <button id = "cartIcon"><i class="fa fa-shopping-cart fa-4x" aria-hidden="true"></i><div id="itemCounter">0</div></button>
                   </div>
                 </div>
@@ -313,13 +314,25 @@
         <div class="col-xs-6 col-xs-offset-5">
           <div class="panel panel-info">
             <div class="panel panel-heading">
-              <h4 align='center'>See what other customers are saying about this product</h4>
+              <h4 align='center'>See what people are saying about this product</h4>
             </div>
             <div id="customerReviews" class="panel panel-body">
 
             </div>
           </div>
         </div>
+      </div>
+    </div>
+    <!-- Order History page -->
+    <div class="container-fluid hidden" id="historyPage">
+      <div class="row" id="header">
+        <h1 id="welcome"></h1>
+        <h3>Order History</h3>
+        <div class="blackBar"><button id="returnBackToHome" type="button" name="button">Return Home</button></div>
+      </div>
+      <h1 id='historyHeader' align = 'center'>Items you've purchased in the past:</h1>
+      <div class="col-xs-4" id="purchasedItemsList">
+
       </div>
     </div>
     <script src="default.js" charset="utf-8"></script>
