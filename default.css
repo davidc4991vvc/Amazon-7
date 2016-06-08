@@ -171,12 +171,13 @@ button{
   border-radius: 90px;
   z-index: 1;
 }
-#historyHeader{
-  transform: translateY(20px);
+#historyBox{
+  margin-top: 5%;
 }
-.historyRow{
-  position: absolute;
+#historyHeader{
+  font-size: 40px;
 }
 #purchasedItemsList{
   font-size: 30px;
+  font-family: helvetica;
 }
