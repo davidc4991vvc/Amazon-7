@@ -185,7 +185,7 @@ viewCart.addEventListener('click',function(theEvent){
     thePrice.appendChild(theQuantity);
     theSpace.appendChild(theRow);
 
-    itemCount++;
+    itemCount+=cart.items[i].quantity;
     function itemCountMessage(itemCount){
       var itemCountMessage;
       if (itemCount == 1){
@@ -202,7 +202,7 @@ viewCart.addEventListener('click',function(theEvent){
     var shipping = document.getElementById('shipping');
     var tax = document.getElementById('tax');
     var total = document.getElementById('total');
-    sub+=parseFloat(cart.items[i].price, 2);
+    sub+=parseFloat(cart.items[i].price*cart.items[i].quantity, 2);
     subTotal.textContent = "Subtotal (" + itemCountMessage(itemCount) + "): $"+sub.toFixed(2);
     itemsSum.textContent = "Items: $" + sub.toFixed(2);
     var shippingAmt = itemCount*3.50;
@@ -272,7 +272,7 @@ payNow.addEventListener('click', function(theEvent){
   }
   if (valid) {
     cart.items.forEach(function(item){
-      orderHistory.purchasedItems.push(item.name);
+      orderHistory.purchasedItems.push(item);
     })
     cart = {
       items: []
@@ -321,7 +321,7 @@ var pageOne = document.getElementById('firstPage');
 allItems.addEventListener('click', function(theEvent){
   theId = theEvent.target.getAttribute('id');
   items.forEach(function(item){
-    if(item.id-1 == theId){
+    if(item.id == theId){
       var theRow = document.createElement('div');
       theRow.setAttribute('class', 'row itemRow');
 
@@ -381,8 +381,13 @@ allItems.addEventListener('click', function(theEvent){
       addToCart.setAttribute('class','addToCart');
       addToCart.textContent = "Add to Cart";
       addToCart.addEventListener('click', function(theEvent){
-        cart.items.push(items[theId]);
-        items[theId].quantity += 1;
+
+        if(item.quantity == 0){
+          cart.items.push(item);
+          item.quantity++;
+        }
+        else{item.quantity++};
+
         var counter = document.getElementById('itemCounter');
         var count = parseInt(counter.textContent);
         count++;
@@ -432,7 +437,7 @@ viewHistory.addEventListener('click', function(theEvent){
   for (var i = 0; i < orderHistory.purchasedItems.length; i++) {
     var quantity = 0;
     var purchasedItem = document.createElement('li');
-    purchasedItem.textContent = orderHistory.purchasedItems[i] +" Quantity: " +quantity;
+    purchasedItem.textContent = orderHistory.purchasedItems[i].name +"- Quantity: " +orderHistory.purchasedItems[i].quantity;
     purchasedList.appendChild(purchasedItem);
     purchasedItemsList.appendChild(purchasedList);
   }
