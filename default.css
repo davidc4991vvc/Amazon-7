@@ -181,3 +181,9 @@ button{
   font-size: 30px;
   font-family: helvetica;
 }
+.itemQuantity{
+  position: absolute;
+  top: 500%;
+  left: 35%;
+  color: black;
+}

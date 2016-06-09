@@ -1,5 +1,6 @@
-var items = [
-  {id: 21, name: 'Samsung Television', price: 499.99, brand: 'Samsung', rating: 4, image: 'Pictures/samsung.jpg', description: 'Enjoy Full HD viewing and enriched colors on this Samsung HDTV. Its Smart TV features let you stream videos and music, surf the Internet, download apps and more. Plus, watch your TV entertainment on your mobile device or vice versa.', reviews:['-Looks great in my living room!'], quantity: 0},
+items = [
+  {id:0, name: 'dummy', price: 0, brand: 'dummy', rating: 0, image: 'N/A', description: '', reviews: '', rating:0},
+  {id: 1, name: 'Samsung Television', price: 499.99, brand: 'Samsung', rating: 4, image: 'Pictures/samsung.jpg', description: 'Enjoy Full HD viewing and enriched colors on this Samsung HDTV. Its Smart TV features let you stream videos and music, surf the Internet, download apps and more. Plus, watch your TV entertainment on your mobile device or vice versa.', reviews:['-Looks great in my living room!'], quantity: 0},
   {id: 2, name: 'Apple iPhone 6s', price: 399.99, brand: 'Apple', rating: 4.5, image: 'Pictures/iphones.jpeg', description: 'The moment you use iPhone 6s, you know you’ve never felt anything like it. With a single press, 3D Touch lets you do more than ever before. Live Photos bring your memories to life in a powerfully vivid way. And that’s just the beginning. Take a deeper look at iPhone 6s, and you’ll find innovation on every level.', reviews:['-So many apps.'], quantity: 0},
   {id: 3, name: 'Vizio Laptop', price: 199.99, brand: 'Vizio', rating: 3, image: 'Pictures/vizio.jpeg', description: 'The remarkably powerful and beautifully portable VIZIO Notebook PC is packed with premium entertainment features, from Full HD display and premium audio to enhanced graphics, to let you work all day and play all night.', reviews:['-Such enhanced graphics.'], quantity: 0},
   {id: 4, name: 'Apple MacBook Pro', price: 1299.99, brand: 'Apple', rating: 4.5, image: 'Pictures/macbook.jpeg', description: 'Apple - MacBook Pro with Retina display (Latest Model) - 13.3" Display - 8GB Memory - 512GB Flash Storage - Silver', reviews:['-I went on the internet!'], quantity: 0},
@@ -100,59 +101,31 @@ returnHomeButton.addEventListener('click', function(theEvent){
 
 var cart = {
   items: [],
-  quantity: []
 }
 var orderHistory = {
   purchasedItems: [],
-  quantity: []
 }
 
 var results = document.getElementById('results');
 results.addEventListener('click', function(theEvent){
   theId = theEvent.target.getAttribute('id');
+  var counter = document.getElementById('itemCounter');
+  var count = parseInt(counter.textContent);
+  if(theId !== null && theId !== 'results'){
+    count++;
+  }
+  counter.textContent = count;
 
-  // var counter = document.getElementById('itemCounter');
-  // var count = parseInt(counter.textContent);
-  //
-  // if(theId !== null && theId !== 'results'){
-  //   count++;
-  // }
-
-  // counter.textContent = count;
-
-  console.log('Adding something to the cart now.')
-
-  // Go through all the items.
   items.forEach(function(item){
     if (item.id == theId) {
-      addToCart(item, cart);
+      if(item.quantity == 0){
+        cart.items.push(item);
+        item.quantity++;
+      }
+      else{item.quantity++};
     }
   })
 });
-
-// Add the item to the cart.
-function addToCart(item, cart) {
-  // Check if the item is in the cart already.
-  for (var i = 0; i < cart.items.length; i++) {
-
-    // If the item that was clicked is already in the cart.
-    console.log(theId, cart.items[i].id);
-    if (theId == cart.items[i].id) {
-      console.log('We found the item, it has a quantity of ' + cart.items[i].quantity);
-      cart.items[i].quantity++;
-    } else {
-      console.log('We did not find it in the cart. Adding it with a quantity of 1');
-      // If the item isn't in the cart. Add it.
-      cart.items.push(item);
-    }
-  }
-
-  // If cart is empty.
-  if (cart.items.length === 0) {
-    item.quantity = 1;
-    cart.items.push(item);
-  }
-}
 
 
 var subTotal = document.getElementById('subTotal');
@@ -175,45 +148,42 @@ viewCart.addEventListener('click',function(theEvent){
   var pageOne = document.getElementById('firstPage');
   var pageTwo = document.getElementById('secondPage');
   var cartInfo = document.getElementById('cartInfo');
-
   for (var i = 0; i < cart.items.length; i++) {
     var theRow = document.createElement('div');
     theRow.setAttribute('class', 'row cartRow');
-    console.log(cart.items[0].name);
-    if(cart.items.name != cart.items[i].name){
-      var theImage = document.createElement('div');
-      theImage.className = 'col-xs-6 col-offset-xs-1 itemImg';
-      var image = document.createElement('img');
-      image.src = cart.items[i].image;
-      image.setAttribute('class', 'cartItems')
-      theImage.appendChild(image);
+    var theImage = document.createElement('div');
+    theImage.className = 'col-xs-6 col-offset-xs-1 itemImg';
+    var image = document.createElement('img');
+    image.src = cart.items[i].image;
+    image.setAttribute('class', 'cartItems')
+    theImage.appendChild(image);
 
-      var theItem = document.createElement('div');
-      theItem.className = "col-xs-3 text-center";
-      var itemName = document.createElement('h4');
-      itemName.textContent = cart.items[i].name;
-      theItem.appendChild(itemName);
+    var theItem = document.createElement('div');
+    theItem.className = "col-xs-3 text-center";
+    var itemName = document.createElement('h4');
+    itemName.textContent = cart.items[i].name;
+    theItem.appendChild(itemName);
 
-      var thePrice = document.createElement('h4');
-      thePrice.textContent = "$" + cart.items[i].price;
-      thePrice.setAttribute('class','itemPrice col-xs-3 text-center');
+    var thePrice = document.createElement('h4');
+    thePrice.textContent = "$" + cart.items[i].price;
+    thePrice.setAttribute('class','itemPrice col-xs-3 text-center');
 
-      var theDescription = document.createElement('p');
-      theDescription.textContent = cart.items[i].description;
-      theDescription.setAttribute('class', 'itemDescription');
-      theItem.appendChild(theDescription);
+    var theDescription = document.createElement('p');
+    theDescription.textContent = cart.items[i].description;
+    theDescription.setAttribute('class', 'itemDescription');
+    theItem.appendChild(theDescription);
 
-      var theSpace = document.getElementById('newPage');
-      theRow.appendChild(theImage);
-      theRow.appendChild(theItem);
-      theRow.appendChild(thePrice);
-      theSpace.appendChild(theRow);
 
-      itemQuantity++;
-    }
-    else{
-      itemQuantity++;
-    }
+    var theQuantity = document.createElement('div');
+    theQuantity.textContent = "Quantity: " + cart.items[i].quantity;
+    theQuantity.setAttribute('class', 'itemQuantity text-center');
+
+    var theSpace = document.getElementById('newPage');
+    theRow.appendChild(theImage);
+    theRow.appendChild(theItem);
+    theRow.appendChild(thePrice);
+    thePrice.appendChild(theQuantity);
+    theSpace.appendChild(theRow);
 
     itemCount++;
     function itemCountMessage(itemCount){
@@ -241,6 +211,7 @@ viewCart.addEventListener('click',function(theEvent){
     tax.textContent = "Estimated tax: $" + taxAmt.toFixed(2);
     total.textContent = "Order total: $" + (sub+taxAmt+shippingAmt).toFixed(2);
 
+    console.log(cart);
   }
   toggle(pageTwo, pageOne);
 });
