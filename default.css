@@ -59,9 +59,6 @@ button{
   position: relative;
   font-family: 'PT-serif', serif;
 }
-#suggestionBox{
-  opacity: 0;
-}
 
 #cart{
   position: absolute;
@@ -96,7 +93,7 @@ button{
   height: 80px;
   background-color: gold;
 }
-#returnHome, #returnBackToHome, #returnToCart, #returnToHome, #returnToHomeButton{
+#returnHome, #returnHomeNow, #returnBackToHome, #returnToCart, #returnToHome, #returnToHomeButton{
   position: absolute;
   left: 90%;
   top: 2px;
@@ -109,12 +106,21 @@ button{
   width: 300px;
   margin-bottom: 10px;
 }
+.resultsRow{
+  height: 400px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.resultsItems{
+  max-width: 200%;
+  max-height: 80%;
+}
 #cartInfo{
   position: fixed;
   right: 5%;
   top: 40%;
 }
-.cartItems{
+.cartItems, .resultsImg{
   top: 10px;
   max-width: 100%;
   max-height: 95%;
