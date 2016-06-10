@@ -1,17 +1,18 @@
 items = [
   {id: 0, name: 'dummy', price: 0, brand: 'dummy', rating: 0, image: 'N/A', description: '', reviews: '', rating:0},
-  {id: 1, name: 'Samsung Television', price: 499.99, brand: 'Samsung', rating: 4, image: 'Pictures/samsung.jpg', description: 'Enjoy Full HD viewing and enriched colors on this Samsung HDTV. Its Smart TV features let you stream videos and music, surf the Internet, download apps and more. Plus, watch your TV entertainment on your mobile device or vice versa.', reviews:['-Looks great in my living room!'], quantity: 0, purchased: 0},
-  {id: 2, name: 'Apple iPhone 6s', price: 399.99, brand: 'Apple', rating: 4.5, image: 'Pictures/iphones.jpeg', description: 'The moment you use iPhone 6s, you know you’ve never felt anything like it. With a single press, 3D Touch lets you do more than ever before. Live Photos bring your memories to life in a powerfully vivid way. And that’s just the beginning. Take a deeper look at iPhone 6s, and you’ll find innovation on every level.', reviews:['-So many apps.'], quantity: 0, purchased: 0, timesBought: 0},
-  {id: 3, name: 'Vizio Laptop', price: 199.99, brand: 'Vizio', rating: 3, image: 'Pictures/vizio.jpeg', description: 'The remarkably powerful and beautifully portable VIZIO Notebook PC is packed with premium entertainment features, from Full HD display and premium audio to enhanced graphics, to let you work all day and play all night.', reviews:['-Such enhanced graphics.'], quantity: 0, purchased: 0},
-  {id: 4, name: 'Apple MacBook Pro', price: 1299.99, brand: 'Apple', rating: 4.5, image: 'Pictures/macbook.jpeg', description: 'Apple - MacBook Pro with Retina display (Latest Model) - 13.3" Display - 8GB Memory - 512GB Flash Storage - Silver', reviews:['-I went on the internet!'], quantity: 0, purchased: 0},
-  {id: 5, name: 'Harry Potter: Chamber of Secrets', price: 12.99, author: 'J.K. Rowling', rating: 5, image: 'Pictures/harry.jpg', description: 'Young wizard Harry Potter and his friends, Ron and Hermione, face new challenges during their second year at Hogwarts School of Witchcraft and Wizardry as they try to discover a dark force that is terrorizing the school.', reviews:["-<3 Harry"], quantity: 0, purchased: 0},
-  {id: 6, name: 'How to Win Friends & Influence People', price: 8.99, author: 'Dale Carnegie', rating: 5, image: 'Pictures/winFriends.jpg', description: 'Written by Dale Carnegie and first published in 1936, it has sold over 30 million copies world-wide, and went on to be named #19 on Time Magazine\'s list of 100 most influential books in 2011.', reviews:['-Blew my mind.'], quantity: 0, purchased: 0},
-  {id: 7, name: 'A Universe From Nothing', price: 11.99, author: 'Lawrence M Krauss', rating: 3.5, image: 'Pictures/universe.jpeg', description: 'A Universe from Nothing: Why There Is Something Rather than Nothing is a book by physicist Lawrence M. Krauss, initially published on January 10, 2012 by Free Press.', reviews:['-Fascinating book!'], quantity: 0, purchased: 0},
-  {id: 8, name: 'The Big Picture', price: 9.99, author: 'Sean Carroll', rating: 4, image: 'Pictures/bigPicture.jpeg', description: 'Already internationally acclaimed for his elegant, lucid writing on the most challenging notions in modern physics.', reviews:['-This book is interesting!'], quantity: 0, purchased: 0},
-  {id: 9, name: 'Interstellar', price: 12.99, rating: 2.5, image: 'Pictures/interstellar.jpeg', description: 'In Earth\'s future, a global crop blight and second Dust Bowl are slowly rendering the planet uninhabitable. Professor Brand (Michael Caine), a brilliant NASA physicist, is working on plans to save mankind by transporting Earth\s population to a new home via a wormhole.', reviews:['-Made me hungry for corn.'], quantity: 0, purchased: 0},
-  {id: 10, name: 'Deadpool', price: 11.99, rating: 4, image: 'Pictures/deadpool.jpg', description: 'Wade Wilson (Ryan Reynolds) is a former Special Forces operative who now works as a mercenary. His world comes crashing down when evil scientist Ajax (Ed Skrein) tortures, disfigures and transforms him into Deadpool. The rogue experiment leaves Deadpool with accelerated healing powers and a twisted sense of humor.', reviews:['-Entertaining for sure.'], quantity: 0, purchased: 0},
-  {id: 11, name: 'Star Wars: The Force Awakens', price: 13.99, rating: 5, image: 'Pictures/starWars.jpg', description: 'Thirty years after the defeat of the Galactic Empire, the galaxy faces a new threat from the evil Kylo Ren (Adam Driver) and the First Order. When a defector named Finn crash-lands on a desert planet, he meets Rey (Daisy Ridley), a tough scavenger whose droid contains a top-secret map.', reviews:['-Excited for the next ones!'], quantity: 0, purchased: 0},
-  {id: 12, name: 'Ex Machina', price: 12.99, rating: 3.5, image: 'Pictures/exMachina.jpg', description:'Caleb Smith (Domhnall Gleeson) a programmer at a huge Internet company, wins a contest that enables him to spend a week at the private estate of Nathan Bateman (Oscar Isaac), his firm\'s brilliant CEO. When he arrives, Caleb learns that he has been chosen to be the human component in a Turing test to determine the capabilities and consciousness of Ava (Alicia Vikander), a beautiful robot.', reviews:['-Skynet online...'], quantity: 0, purchased: 0},
+  {id: 1, name: 'Samsung Television', department: 'electronics', price: 499.99, brand: 'Samsung', rating: 4, image: 'Pictures/samsung.jpg', description: 'Enjoy Full HD viewing and enriched colors on this Samsung HDTV. Its Smart TV features let you stream videos and music, surf the Internet, download apps and more. Plus, watch your TV entertainment on your mobile device or vice versa.', reviews:['-Looks great in my living room!'], quantity: 0, purchased: 0},
+  {id: 2, name: 'Apple iPhone 6s', department: 'electronics', price: 399.99, brand: 'Apple', rating: 4.5, image: 'Pictures/iphones.jpeg', description: 'The moment you use iPhone 6s, you know you’ve never felt anything like it. With a single press, 3D Touch lets you do more than ever before. Live Photos bring your memories to life in a powerfully vivid way. And that’s just the beginning. Take a deeper look at iPhone 6s, and you’ll find innovation on every level.', reviews:['-So many apps.'], quantity: 0, purchased: 0, timesBought: 0},
+  {id: 3, name: 'Vizio Laptop', department: 'electronics', price: 199.99, brand: 'Vizio', rating: 3, image: 'Pictures/vizio.jpeg', description: 'The remarkably powerful and beautifully portable VIZIO Notebook PC is packed with premium entertainment features, from Full HD display and premium audio to enhanced graphics, to let you work all day and play all night.', reviews:['-Such enhanced graphics.'], quantity: 0, purchased: 0},
+  {id: 4, name: 'Apple MacBook Pro', department: 'electronics', price: 1299.99, brand: 'Apple', rating: 4.5, image: 'Pictures/macbook.jpeg', description: 'Apple - MacBook Pro with Retina display (Latest Model) - 13.3" Display - 8GB Memory - 512GB Flash Storage - Silver', reviews:['-I went on the internet!'], quantity: 0, purchased: 0},
+  {id: 5, name: 'Harry Potter: Chamber of Secrets', department: 'books', price: 12.99, author: 'J.K. Rowling', rating: 5, image: 'Pictures/harry.jpg', description: 'Young wizard Harry Potter and his friends, Ron and Hermione, face new challenges during their second year at Hogwarts School of Witchcraft and Wizardry as they try to discover a dark force that is terrorizing the school.', reviews:["-<3 Harry"], quantity: 0, purchased: 0},
+  {id: 6, name: 'How to Win Friends & Influence People', department: 'books', price: 8.99, author: 'Dale Carnegie', rating: 5, image: 'Pictures/winFriends.jpg', description: 'Written by Dale Carnegie and first published in 1936, it has sold over 30 million copies world-wide, and went on to be named #19 on Time Magazine\'s list of 100 most influential books in 2011.', reviews:['-Blew my mind.'], quantity: 0, purchased: 0},
+  {id: 7, name: 'A Universe From Nothing', department: 'books', price: 11.99, author: 'Lawrence M Krauss', rating: 3.5, image: 'Pictures/universe.jpeg', description: 'A Universe from Nothing: Why There Is Something Rather than Nothing is a book by physicist Lawrence M. Krauss, initially published on January 10, 2012 by Free Press.', reviews:['-Fascinating book!'], quantity: 0, purchased: 0},
+  {id: 8, name: 'The Big Picture', department: 'books', price: 9.99, author: 'Sean Carroll', rating: 4, image: 'Pictures/bigPicture.jpeg', description: 'Already internationally acclaimed for his elegant, lucid writing on the most challenging notions in modern physics.', reviews:['-This book is interesting!'], quantity: 0, purchased: 0},
+  {id: 9, name: 'Interstellar', department: 'movies', price: 12.99, rating: 2.5, image: 'Pictures/interstellar.jpeg', description: 'In Earth\'s future, a global crop blight and second Dust Bowl are slowly rendering the planet uninhabitable. Professor Brand (Michael Caine), a brilliant NASA physicist, is working on plans to save mankind by transporting Earth\s population to a new home via a wormhole.', reviews:['-Made me hungry for corn.'], quantity: 0, purchased: 0},
+  {id: 10, name: 'Deadpool', department: 'movies', price: 11.99, rating: 4, image: 'Pictures/deadpool.jpg', description: 'Wade Wilson (Ryan Reynolds) is a former Special Forces operative who now works as a mercenary. His world comes crashing down when evil scientist Ajax (Ed Skrein) tortures, disfigures and transforms him into Deadpool. The rogue experiment leaves Deadpool with accelerated healing powers and a twisted sense of humor.', reviews:['-Entertaining for sure.'], quantity: 0, purchased: 0},
+  {id: 11, name: 'Star Wars: The Force Awakens', department: 'movies', price: 13.99, rating: 5, image: 'Pictures/starWars.jpg', description: 'Thirty years after the defeat of the Galactic Empire, the galaxy faces a new threat from the evil Kylo Ren (Adam Driver) and the First Order. When a defector named Finn crash-lands on a desert planet, he meets Rey (Daisy Ridley), a tough scavenger whose droid contains a top-secret map.', reviews:['-Excited for the next ones!'], quantity: 0, purchased: 0},
+  {id: 12, name: 'Ex Machina', department: 'movies', price: 12.99, rating: 3.5, image: 'Pictures/exMachina.jpg', description:'Caleb Smith (Domhnall Gleeson) a programmer at a huge Internet company, wins a contest that enables him to spend a week at the private estate of Nathan Bateman (Oscar Isaac), his firm\'s brilliant CEO. When he arrives, Caleb learns that he has been chosen to be the human component in a Turing test to determine the capabilities and consciousness of Ava (Alicia Vikander), a beautiful robot.', reviews:['-Skynet online...'], quantity: 0, purchased: 0},
+  {id: 13, name: 'Captain America: Civil War', department: 'movies', price: 12.99, rating: 4.5, image: 'Pictures/civilWar.jpeg', description:'Political pressure mounts to install a system of accountability when the actions of the Avengers lead to collateral damage. The new status quo deeply divides members of the team. Captain America (Chris Evans) believes superheroes should remain free to defend humanity without government interference.', reviews:['-Needs more backstories.'], quantity: 0, purchased: 0},
 ]
 
 function toggle(showPage, hidePage){
@@ -118,6 +119,10 @@ var cart = {
 }
 var orderHistory = {
   purchasedItems: [],
+}
+
+var recommendations = {
+  recommendedItemsArr: []
 }
 
 var users = {
@@ -316,7 +321,41 @@ payNow.addEventListener('click', function(theEvent){
       items: []
     }
   }
+  //Fills recommended items array based purely off of items are in the same department
+  items.forEach(function(item){
+    for (var i = 0; i < orderHistory.purchasedItems.length; i++) {
+      if (item.name != orderHistory.purchasedItems[i].name && item.department == orderHistory.purchasedItems[i].department) {
+        recommendations.recommendedItemsArr.push(item);
+      }
+    }
+  });
+
+  var recommendedItemsInd = document.getElementById('recommendedItems');
+  var recommendedItems = document.getElementById('recommendedItems');
+  for (var i = 0; i < recommendations.recommendedItemsArr.length; i++) {
+    var theName = document.createElement('p');
+    theName.textContent = recommendations.recommendedItemsArr[i].name;
+    if (recommendedItems.textContent.indexOf(theName) == -1) {
+      for (var j = 0; j < recommendations.recommendedItemsArr.length; j++) {
+        if (recommendations.recommendedItemsArr[i].name == recommendations.recommendedItemsArr[j].name){
+            recommendations.recommendedItemsArr.splice(i,1);
+          }
+        }
+      var theImage = document.createElement('img');
+      theImage.src = recommendations.recommendedItemsArr[i].image;
+      theImage.setAttribute('height', '200px');
+      theImage.setAttribute('margin-left','5%');
+      var theBox = document.createElement('div');
+      theBox.setAttribute('max-width', '150px');
+      theBox.setAttribute('class','col-xs-3')
+      theBox.appendChild(theImage);
+      theBox.appendChild(theName);
+      recommendedItemsInd.appendChild(theBox);
+    }
+  }
 });
+
+
 
 var returnToHome = document.getElementById('returnToHome');
 returnToHome.addEventListener('click', function(theEvent){
@@ -325,6 +364,8 @@ returnToHome.addEventListener('click', function(theEvent){
   var purchaseSuccessful = document.getElementById('purchaseSuccessful');
   toggle(pageOne, purchaseSuccessful);
   clear(results);
+  var recommendedRow = document.getElementById('recommendedItemsRow');
+  recommendedRow.className = recommendedRow.className.replace('hidden',' ');
 });
 
 var returnToHomeButton = document.getElementById('returnToHomeButton');
@@ -333,7 +374,6 @@ returnToHomeButton.addEventListener('click', function(theEvent){
   clear(itemDetails);
   clear(customerReviews);
 });
-
 
 var allItems = document.getElementById('navbar');
 var itemPage = document.getElementById('itemPage');

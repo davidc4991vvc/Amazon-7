@@ -141,6 +141,12 @@
             </div>
           </div>
         </div>
+        <div class="recommendedRow row hidden" id="recommendedItemsRow">
+          <div class="panel panel-info">
+            <div class="panel panel-heading text-center" id="recommendedItemsHeading"><i class="fa fa-hand-o-down" aria-hidden="true"></i> Our recommendations based on your shopping history <i class="fa fa-hand-o-down" aria-hidden="true"></i></div>
+            <div class="panel panel-body" align='center' id="recommendedItems"></div>
+          </div>
+        </div>
       </div>
         <!--Search Results Page -->
       <div id = 'resultsPage' class = 'container-fluid hidden'>
@@ -160,7 +166,7 @@
         </div>
       </div>
     </div>
-    <!--End of the first page -->
+    <!--End of the search results page -->
     <div id='secondPage' class="container-fluid shoppingCart hidden">
       <div class="row" id="header">
         <h1 id="welcome"></h1>
@@ -181,7 +187,7 @@
         </div>
       </div>
       <div id="shoppingCartHead" class="row shoppingCart">
-        <div class="panel panel-default">
+        <div class="panel panel-default" id="shoppingCartPanel">
           <div class="panel-heading text-center"><h2>Items in your cart:</h2></div>
           <div class="panel-body" id="newPage">
           </div>
