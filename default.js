@@ -1,5 +1,5 @@
 items = [
-  {id:0, name: 'dummy', price: 0, brand: 'dummy', rating: 0, image: 'N/A', description: '', reviews: '', rating:0},
+  {id: 0, name: 'dummy', price: 0, brand: 'dummy', rating: 0, image: 'N/A', description: '', reviews: '', rating:0},
   {id: 1, name: 'Samsung Television', price: 499.99, brand: 'Samsung', rating: 4, image: 'Pictures/samsung.jpg', description: 'Enjoy Full HD viewing and enriched colors on this Samsung HDTV. Its Smart TV features let you stream videos and music, surf the Internet, download apps and more. Plus, watch your TV entertainment on your mobile device or vice versa.', reviews:['-Looks great in my living room!'], quantity: 0, purchased: 0},
   {id: 2, name: 'Apple iPhone 6s', price: 399.99, brand: 'Apple', rating: 4.5, image: 'Pictures/iphones.jpeg', description: 'The moment you use iPhone 6s, you know you’ve never felt anything like it. With a single press, 3D Touch lets you do more than ever before. Live Photos bring your memories to life in a powerfully vivid way. And that’s just the beginning. Take a deeper look at iPhone 6s, and you’ll find innovation on every level.', reviews:['-So many apps.'], quantity: 0, purchased: 0, timesBought: 0},
   {id: 3, name: 'Vizio Laptop', price: 199.99, brand: 'Vizio', rating: 3, image: 'Pictures/vizio.jpeg', description: 'The remarkably powerful and beautifully portable VIZIO Notebook PC is packed with premium entertainment features, from Full HD display and premium audio to enhanced graphics, to let you work all day and play all night.', reviews:['-Such enhanced graphics.'], quantity: 0, purchased: 0},
@@ -14,10 +14,6 @@ items = [
   {id: 12, name: 'Ex Machina', price: 12.99, rating: 3.5, image: 'Pictures/exMachina.jpg', description:'Caleb Smith (Domhnall Gleeson) a programmer at a huge Internet company, wins a contest that enables him to spend a week at the private estate of Nathan Bateman (Oscar Isaac), his firm\'s brilliant CEO. When he arrives, Caleb learns that he has been chosen to be the human component in a Turing test to determine the capabilities and consciousness of Ava (Alicia Vikander), a beautiful robot.', reviews:['-Skynet online...'], quantity: 0, purchased: 0},
 ]
 
-var users = [
-  {name: '', addressOne: '', addressTwo: '', city: '', state: '', zip: '', cardName:'',cardNum:''}
-]
-
 function toggle(showPage, hidePage){
   hidePage.className = hidePage.className + ' hidden';
   showPage.className = showPage.className.replace(/hidden/g,' ');
@@ -26,7 +22,7 @@ function toggle(showPage, hidePage){
 function match(input, list){
   var theItems = [];
   list.forEach(function(item){
-    if (item.name.toLowerCase().indexOf(input.toLowerCase()) !== -1) {
+    if (item.name.toLowerCase().indexOf(input.toLowerCase()) !== -1 && item.id != 0) {
       theItems.push(item);
     }
   });
@@ -122,6 +118,10 @@ var cart = {
 }
 var orderHistory = {
   purchasedItems: [],
+}
+
+var users = {
+    user: []
 }
 
 var results = document.getElementById('results');
@@ -258,35 +258,31 @@ payNow.addEventListener('click', function(theEvent){
   var purchaseSuccessful = document.getElementById('purchaseSuccessful');
   var valid = true;
 
-  if (buyerName.value.indexOf(' ') == -1) {
-    window.confirm("Please enter your first and last name.");
-    valid = false;
+  function formValid(condition, group, name){
+    if(condition){
+      group.className = group.className.replace(/valid/g," ");
+      name.className = name.className.replace(/valid/g,' ');
+      group.className += " invalid";
+      name.className += " invalid";
+      valid = false;
+    }
+    else{
+      group.className = group.className.replace(/invalid/g,' ');
+      name.className = name.className.replace(/invalid/g,' ');
+      group.className += " valid";
+      name.className += " valid";
+    }
+    return valid;
   }
 
-  if (buyerAddress.value.indexOf(' ') == -1) {
-    window.confirm("Please enter your street address.");
-    valid = false;
-  }
+  formValid(buyerName.value.indexOf(' ') == -1, buyerNameGroup, buyerName);
+  formValid(buyerAddress.value.indexOf(' ') == -1, buyerAddressGroup, buyerAddress);
+  formValid(cardName.value.indexOf(' ') == -1, cardNameGroup, cardName);
+  formValid(buyerCity.value.length == 0, buyerCityGroup, buyerCity);
+  formValid(buyerZip.value.length != 5, buyerZipGroup, buyerZip);
+  formValid(cardNum.value.length != 12, cardNumGroup, cardNum);
+  formValid(buyerState.value.length == 0, buyerStateGroup, buyerState);
 
-  if (buyerCity.value.length == 0) {
-    window.confirm("Please enter the name of your city.");
-    valid = false;
-  }
-
-  if (buyerZip.value.length == 0) {
-    window.confirm("Please enter your ZIP code.");
-    valid = false;
-  }
-
-  if (cardName.value.indexOf(' ') == -1) {
-    window.confirm("Please enter your name exactly as it appears on your card.");
-    valid = false;
-  }
-
-  if (cardNum.value.length != 12) {
-    window.confirm("Please enter all twelve digits of the numbers on your card.");
-    valid = false;
-  }
   if (valid) {
     toggle(purchaseSuccessful, checkoutPage);
 

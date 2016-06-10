@@ -141,6 +141,14 @@ button{
 #forms{
   margin-top: 3%;
 }
+.invalid{
+  color: red;
+  border-color: red;
+}
+.valid{
+  color: green;
+  border-color: green;
+}
 #shoppingCartHead{
   margin-top: 2%;
 }
