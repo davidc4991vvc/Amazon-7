@@ -113,8 +113,8 @@ button{
   margin-left: 5%;
 }
 .resultsItems{
-  max-width: 200%;
-  max-height: 80%;
+  max-width: 550px;
+  max-height: 400px;
 }
 #cartInfo{
   position: fixed;
