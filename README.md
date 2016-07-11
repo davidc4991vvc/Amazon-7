@@ -16,12 +16,12 @@
 *Viewing the shopping cart:*
 ![alt tag](https://github.com/schreyerpeter/Amazon/blob/master/screenshots/Screen%20Shot%202016-07-11%20at%2011.08.17%20AM.png)
 
-*Viewing an individual item:*
+*Checking out:*
 ![alt tag](https://github.com/schreyerpeter/Amazon/blob/master/screenshots/Screen%20Shot%202016-07-11%20at%2011.08.35%20AM.png)
 
-*Viewing an individual item:*
+*Viewing suggestions based on search:*
 ![alt tag](https://github.com/schreyerpeter/Amazon/blob/master/screenshots/Screen%20Shot%202016-07-11%20at%2011.17.17%20AM.png)
 
-*Viewing an individual item:*
+*Viewing purchase history:*
 ![alt tag](https://github.com/schreyerpeter/Amazon/blob/master/screenshots/Screen%20Shot%202016-07-11%20at%2011.18.06%20AM.png)
 
